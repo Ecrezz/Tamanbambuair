@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Taman Bambu Air - Layanan & Booking</title>
+<style>
+  /* Reset & base */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin:0; padding:0;
+    background: #f0f6f4;
+    color: #2b3a2f;
+  }
+  a {
+    color: #3c7751;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  header {
+    background: #4a7c40;
+    color: #eaf0e3;
+    padding: 15px 30px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  }
+
+  header h1 {
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+
+  nav {
+    margin-top: 10px;
+  }
+  nav a {
+    margin: 0 12px;
+    font-weight: 600;
+  }
+
+  main {
+    max-width: 1000px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(74,124,64,0.15);
+  }
+
+  section {
+    margin-bottom: 40px;
+  }
+
+  section h2 {
+    border-bottom: 3px solid #4a7c40;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 1.8rem;
+  }
+
+  /* Jenis Layanan */
+  .services-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  .service-card {
+    background: #e8f0e9;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 2px 2px 8px rgba(74,124,64,0.1);
+    transition: transform 0.2s ease;
+  }
+  .service-card:hover {
+    transform: translateY(-6px);
+  }
+  .service-card h3 {
+    margin-top: 0;
+    color: #2f4b26;
+  }
+  .service-card p {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  /* Price List */
+  .price-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .price-table th, .price-table td {
+    border: 1px solid #a1b599;
+    padding: 14px 20px;
+    text-align: left;
+    font-size: 1rem;
+  }
+  .price-table thead {
+    background: #a5be8b;
+    color: #2b3a2f;
+    font-weight: 700;
+  }
+  .price-table tbody tr:hover {
+    background: #ddefd6;
+  }
+
+  /* Cara Booking */
+  .booking-steps {
+    list-style: none;
+    counter-reset: step-counter;
+    padding-left: 0;
+  }
+  .booking-steps li {
+    counter-increment: step-counter;
+    background: #e8f0e9;
+    margin-bottom: 16px;
+    padding: 18px 22px;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 1px 1px 6px rgba(74,124,64,0.12);
+  }
+  .booking-steps li::before {
+    content: counter(step-counter);
+    position: absolute;
+    left: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #4a7c40;
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    font-weight: 700;
+    text-align: center;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(74,124,64,0.3);
+  }
+  .booking-steps li strong {
+    display: block;
+    margin-bottom: 6px;
+    color: #3c7751;
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px 15px;
+    background: #4a7c40;
+    color: #dbe8d6;
+    font-size: 0.9rem;
+    margin-top: 50px;
+  }
+
+  @media (max-width: 480px) {
+    main {
+      padding: 20px 20px;
+      margin: 20px 10px;
+    }
+    nav a {
+      display: block;
+      margin: 8px 0;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Taman Bambu Air</h1>
+  <nav>
+    <a href="#layanan">Jenis Layanan</a>
+    <a href="#harga">Price List</a>
+    <a href="#booking">Cara Booking</a>
+  </nav>
+</header>
+
+<main>
+  <section id="layanan">
+    <h2>Jenis Layanan</h2>
+    <div class="services-list">
+      <div class="service-card">
+        <h3>Wisata Taman Bambu</h3>
+        <p>Nikmati keindahan dan ketenangan taman bambu yang asri dengan berbagai spot foto menarik dan suasana alami.</p>
+      </div>
+      <div class="service-card">
+        <h3>Event Outdoor</h3>
+        <p>Tempat ideal untuk mengadakan gathering, workshop, atau acara keluarga dengan suasana alami yang menyegarkan.</p>
+      </div>
+      <div class="service-card">
+        <h3>Penyewaan Spot Foto</h3>
+        <p>Sewa area foto dengan background bambu yang eksotis untuk keperluan pribadi atau komersial.</p>
+      </div>
+      <div class="service-card">
+        <h3>Eduwisata & Workshop</h3>
+        <p>Program edukasi tentang tanaman bambu dan ekosistem yang dapat diikuti kelompok sekolah atau komunitas.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="harga">
+    <h2>Price List</h2>
+    <table class="price-table" aria-label="Daftar Harga Layanan Taman Bambu Air">
+      <thead>
+        <tr>
+          <th>Layanan</th>
+          <th>Harga</th>
+          <th>Keterangan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Wisata Taman Bambu</td>
+          <td>Rp 25.000 / orang</td>
+          <td>Harga tiket masuk per orang</td>
+        </tr>
+        <tr>
+          <td>Event Outdoor</td>
+          <td>Mulai Rp 1.500.000</td>
+          <td>Harga tergantung durasi dan fasilitas</td>
+        </tr>
+        <tr>
+          <td>Penyewaan Spot Foto</td>
+          <td>Rp 300.000 / sesi</td>
+          <td>Sesi maksimal 2 jam</td>
+        </tr>
+        <tr>
+          <td>Eduwisata & Workshop</td>
+          <td>Rp 100.000 / peserta</td>
+          <td>Minimal peserta 10 orang</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="booking">
+    <h2>Cara Booking</h2>
+    <ol class="booking-steps">
+      <li>
+        <strong>Kunjungi Website atau Kontak</strong>
+        Hubungi kami melalui nomor WhatsApp atau email yang tersedia untuk reservasi.
+      </li>
+      <li>
+        <strong>Pilih Jenis Layanan</strong>
+        Tentukan layanan yang ingin Anda nikmati, seperti wisata, event, spot foto, atau workshop.
+      </li>
+      <li>
+        <strong>Konfirmasi Detail</strong>
+        Tim kami akan mengonfirmasi tanggal, waktu, dan kebutuhan khusus Anda.
+      </li>
+      <li>
+        <strong>Lakukan Pembayaran</strong>
+        Setelah konfirmasi, lakukan pembayaran sesuai instruksi yang diberikan.
+      </li>
+      <li>
+        <strong>Terima Konfirmasi</strong>
+        Terima bukti booking dan informasi lengkap sebelum hari acara.
+      </li>
+    </ol>
+    <p>Untuk pemesanan, silakan hubungi:</p>
+    <ul>
+      <li>WhatsApp: <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer">+62 812-3456-7890</a></li>
+      <li>Email: <a href="mailto:info@tamanbambuair.com">info@tamanbambuair.com</a></li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 Taman Bambu Air. All Rights Reserved.
+</footer>
+
+</body>
+</html>
+

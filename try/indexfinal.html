@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Taman Bambu Air - Wisata Alam &amp; Glamping</title>
+<style>
+  /* Reset */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  /* Container */
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  /* Header / Navbar */
+  header {
+    background: #fff;
+    border-bottom: 1px solid #eaeaea;
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+  }
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 56px;
+    padding: 0 15px;
+  }
+  .navbar .logo {
+    font-weight: 900;
+    font-size: 1.6rem;
+    color: #16a085;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    white-space: nowrap;
+    max-width: 70%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Navigation styles */
+  nav {
+    position: relative;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+  }
+  nav ul li {
+    margin-left: 25px;
+  }
+  nav ul li a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 8px 0;
+    border-bottom: 3px solid transparent;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+  }
+  nav ul li a:hover,
+  nav ul li a.active {
+    color: #16a085;
+    border-bottom: 3px solid #16a085;
+  }
+
+  /* Menu toggle button for mobile */
+  .menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    color: #16a085;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    line-height: 1;
+  }
+  /* Overlay for mobile menu open */
+  body.menu-open::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 9998;
+  }
+
+  /* Hero Section */
+  .hero {
+    background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80');
+    height: 100vh; /* Mengubah tinggi menjadi 100vh */
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 0 15px;
+    text-align: center;
+    animation: fadeIn 1s ease-in; /* Menambahkan animasi masuk */
+  }
+
+  /* Keyframes untuk animasi masuk */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Animasi keluar */
+  .hero.out {
+    animation: fadeOut 1s ease-out; /* Menambahkan animasi keluar */
+  }
+
+  /* Keyframes untuk animasi keluar */
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+  }
+
+  /* Main Content */
+  main {
+    margin: 30px auto 50px;
+    max-width: 1000px;
+  }
+  main > section {
+    margin-bottom: 36px;
+    text-align: center; /* Center text for all sections */
+  }
+
+  /* Section Titles without left border */
+  section > h2 {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #11644d;
+    margin-bottom: 18px;
+    padding-left: 0;
+  }
+
+  /* Articles Grid */
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 20px;
+  }
+
+  /* Card Style */
+  article.card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease;
+  }
+  article.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 26px rgba(22,160,133,0.2);
+  }
+  article.card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+  }
+  article.card .card-body {
+    padding: 15px 18px;
+    flex-grow: 1;
+  }
+  article.card .card-body h3 {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: #11644d;
+  }
+  article.card .card-body p {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  /* Booking Section */
+  #booking {
+    text-align: center; /* Center text for booking section */
+  }
+  #booking a {
+    display: inline-block;
+    background: #16a085;
+    color: white;
+    padding: 11px 26px;
+    font-weight: 700;
+    border-radius: 6px;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    box-shadow: 0 4px 12px rgba(22,160,133,0.6);
+  }
+  #booking a:hover {
+    background: #138d75;
+  }
+
+  /* Footer */
+  footer {
+    background: linear-gradient(135deg, #1b6c56, #16a085);
+    color: white;
+    padding: 25px 15px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: inset 0 4px 20px rgba(0,0,0,0.2);
+  }
+  footer p {
+    margin-bottom: 10px;
+  }
+  footer small {
+    font-weight: 400;
+    font-size: 0.85rem;
+    opacity: 0.85;
+  }
+
+  /* New sections styling */
+  #location-description p {
+    max-width: 720px;
+    margin: 0 auto;
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.5;
+  }
+
+  #map iframe {
+    width: 100%;
+    max-width: 720px;
+    height: 300px;
+    border: none;
+    border-radius: 8px;
+    display: block;
+    margin: 18px auto 0 auto;
+  }
+
+  #schedule ul {
+    max-width: 600px;
+    margin: 0 auto;
+    list-style: none;
+    padding-left: 0;
+    font-weight: 600;
+    color: #11644d;
+    font-size: 0.95rem;
+  }
+  #schedule ul li {
+    margin-bottom: 0.6em;
+  }
+
+  /* Testimoni cards */
+  #testimoni .testimonial-list {
+    max-width: 880px;
+    margin: 0 auto;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .testimonial-card {
+    background: #d1f1e7;
+    border-radius: 8px;
+    padding: 15px 18px;
+    width: 280px;
+    font-style: italic;
+    color: #23533e;
+    box-shadow: 0 4px 10px rgba(22,160,133,0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .testimonial-card strong {
+    margin-top: 10px;
+    font-style: normal;
+    font-weight: 900;
+    color: #11644d;
+  }
+
+  /* Social media links */
+  #social-media {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  #social-media a {
+    display: inline-block;
+    margin: 0 15px;
+    font-size: 1.3rem;
+    color: #16a085;
+    transition: color 0.3s ease;
+    text-decoration: none;
+  }
+  #social-media a:hover {
+    color: #138d75;
+  }
+  /* Icons with emojis fallback */
+  .icon-instagram::before {
+    content: "📸";
+    margin-right: 6px;
+  }
+  .icon-tiktok::before {
+    content: "🎵";
+    margin-right: 6px;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    nav ul {
+      flex-direction: column;
+      background: white;
+      position: fixed;
+      top: 56px;
+      left: 0;
+      width: 100%;
+      height: calc(100vh - 56px);
+      overflow-y: auto;
+      padding-top: 20px;
+      transform: translateX(-110%);
+      transition: transform 0.3s ease;
+      z-index: 9999;
+    }
+    nav ul.open {
+      transform: translateX(0);
+    }
+    nav ul li {
+      margin: 15px 0;
+      text-align: center;
+    }
+    .menu-toggle {
+      display: block;
+    }
+    .hero {
+      height: 100vh; /* Tetap 100vh untuk responsivitas */
+      padding: 0 20px;
+      justify-content: center;
+      text-align: center;
+    }
+    .hero-content {
+      max-width: 100%;
+      width: 100%;
+      padding: 0 10px;
+    }
+    .hero h1 {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+    }
+    .hero p {
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+    .navbar .logo {
+      max-width: 70%;
+    }
+  }
+  @media (max-width: 400px) {
+    .hero {
+      height: 280px;
+    }
+    .hero h1 {
+      font-size: 1.4rem;
+    }
+    .hero p {
+      font-size: 0.85rem;
+    }
+  }
+</style>
+</head>
+<body>
+  <header role="banner">
+    <div class="container navbar">
+      <a href="#" class="logo" aria-label="Logo Taman Bambu Air">Taman Bambu Air</a>
+      <nav role="navigation" aria-label="Primary Navigation">
+        <button class="menu-toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Toggle menu" aria-haspopup="true">&#9776;</button>
+        <ul id="primary-menu" class="nav-menu" role="menubar" aria-hidden="true" tabindex="-1">
+          <li role="none"><a href="#home" class="active" tabindex="0" role="menuitem">Beranda</a></li>
+          <li role="none"><a href="#location-description" tabindex="0" role="menuitem">Lokasi &amp; Keunikan</a></li>
+          <li role="none"><a href="#map" tabindex="0" role="menuitem">Peta Lokasi</a></li>
+          <li role="none"><a href="#testimoni" tabindex="0" role="menuitem">Testimoni</a></li>
+          <li role="none"><a href="#schedule" tabindex="0" role="menuitem">Jadwal &amp; Event</a></li>
+          <li role="none"><a href="#prices" tabindex="0" role="menuitem">Harga Tiket</a></li>
+          <li role="none"><a href="#bo" target="_blank" rel="noopener" tabindex="0" role="menuitem" aria-label="Link Reservasi dan Booking">Reservasi & Booking</a></li>
+          <li role="none"><a href="#contact" tabindex="0" role="menuitem">Kontak</a></li>
+          <li role="none"><a href="#social-media" tabindex="0" role="menuitem">Media Sosial</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="home" role="img" aria-label="Waduk Sermo dan pepohonan rindang Taman Bambu Air">
+    <div class="container hero-content">
+      <h1>Rasakan Keindahan dan Ketenangan Taman Bambu Air</h1>
+      <p>Destinasi wisata alam di Waduk Sermo untuk prewedding, camping keluarga, dan bersantai di alam terbuka.</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSeWvqJF5lKhylKbPyHHcjuX7FARGTy5oXeIFTge2zoG_8inoQ/viewform?pli=1" target="_blank" rel="noopener" class="btn-primary" aria-label="Pesan Sekarang">Pesan Sekarang</a>
+    </div>
+  </section>
+
+  <main class="container" role="main">
+
+    <section id="location-description" tabindex="-1">
+      <h2>Lokasi &amp; Keunikan</h2>
+      <p>Taman Bambu Air terletak di tepi Waduk Sermo, Kulon Progo, Yogyakarta. Tempat ini terkenal dengan suasana sejuk dan pemandangan alam yang asri di bawah pohon-pohon rindang, cocok untuk berbagai aktivitas outdoor seperti prewedding, camping keluarga, dan santai bersama teman.</p>
+    </section>
+
+    <section id="map" tabindex="-1">
+      <h2>Peta Lokasi</h2>
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.635178709607!2d110.03426041477222!3d-7.795931594388699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a57c2f895e97d%3A0x13676a6ec53ede17!2sWaduk%20Sermo!5e0!3m2!1sid!2sid!4v1675208735555!5m2!1sid!2sid" 
+        allowfullscreen="" 
+        loading="lazy" 
+        aria-label="Peta lokasi Waduk Sermo dan Taman Bambu Air"></iframe>
+    </section>
+
+    <section id="testimoni" tabindex="-1">
+      <h2>Testimoni Wisatawan</h2>
+      <div class="testimonial-list">
+        <div class="testimonial-card" tabindex="0" role="article" aria-label="Testimoni dari Sari Yogyakarta">
+          <p>"Tempat yang sangat nyaman dan indah untuk berkemah keluarga. Pelayanan ramah dan fasilitas lengkap. Pemandangan Waduk Sermo benar-benar menenangkan jiwa."</p>
+          <strong>- Sari, Yogyakarta</strong>
+        </div>
+        <div class="testimonial-card" tabindex="0" role="article" aria-label="Testimoni dari Budi dan Ratih">
+          <p>"Pengalaman prewedding di kapal di sini sungguh tak terlupakan. Suasana natural dan view yang luar biasa membuat momen kami istimewa."</p>
+          <strong>- Budi &amp; Ratih</strong>
+        </div>
+      </div>
+    </section>
+
+    <section id="schedule" tabindex="-1">
+      <h2>Jadwal Buka &amp; Event Lokal</h2>
+      <ul>
+        <li>Jam Operasional: 07.00 - 17.00 WIB</li>
+        <li>Mulai 1 Juli 2021 buka setiap hari</li>
+        <li>Event Prewedding reguler diadakan setiap Sabtu &amp; Minggu</li>
+        <li>Event Camping Keluarga khusus akhir pekan dan libur nasional</li>
+      </ul>
+    </section>
+
+    <section id="prices" tabindex="-1">
+      <h2>Harga Tiket &amp; Paket</h2>
+      <div class="articles-grid" style="max-width: 600px; margin: auto;">
+        <article class="card" role="article" tabindex="0" style="padding: 20px;">
+          <h3>Kapal Prewedding</h3>
+          <p>Rp 200.000,- / jam</p>
+          <p>Biaya tambahan Rp 50.000,- jika pemakaian di luar jam operasional (07.00 - 17.00 WIB).</p>
+        </article>
+        <article class="card" role="article" tabindex="0" style="padding: 20px;">
+          <h3>Paket Camping Keluarga</h3>
+          <p>Rp 275.000,- (belum termasuk HTM - Harga Tiket Masuk)</p>
+          <p>Paket lengkap untuk 4-6 orang dengan fasilitas tenda, kasur, tikar piknik, kursi, meja, kompor BBQ, cooking set
