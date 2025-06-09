@@ -284,32 +284,51 @@
   }
 
   /* Testimoni cards */
-  #testimoni .testimonial-list {
-    max-width: 880px;
-    margin: 0 auto;
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-    justify-content: center;
+  .testimonial-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Menyesuaikan kolom untuk responsivitas */
+    gap: 20px; /* Jarak antar kartu */
+    max-width: 880px; /* Lebar maksimum untuk menjaga agar tidak terlalu lebar */
+    margin: 0 auto; /* Memusatkan daftar testimoni */
+    padding: 0 10px; /* Menambahkan padding untuk ruang di sisi */
   }
+  
   .testimonial-card {
-    background: #d1f1e7;
-    border-radius: 8px;
-    padding: 15px 18px;
-    width: 400px;   /* lebarnya*/
-    font-style: italic;
-    color: #23533e;
-    box-shadow: 0 4px 10px rgba(22,160,133,0.15);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    background: #d1f1e7; /* Warna latar belakang kartu */
+    border-radius: 8px; /* Sudut melengkung */
+    padding: 15px; /* Ruang di dalam kartu */
+    display: flex; /* Menggunakan flexbox untuk tata letak */
+    flex-direction: column; /* Mengatur arah kolom */
+    justify-content: space-between; /* Menjaga jarak antar elemen */
+    box-shadow: 0 4px 10px rgba(22, 160, 133, 0.15); /* Bayangan untuk efek kedalaman */
+    transition: transform 0.2s; /* Transisi untuk efek hover */
   }
+  
+  .testimonial-card:hover {
+    transform: scale(1.02); /* Efek zoom saat hover */
+  }
+  
+  .testimonial-card img {
+    width: 60px; /* Ukuran gambar profil */
+    height: 60px; /* Ukuran gambar profil */
+    border-radius: 50%; /* Membuat gambar bulat */
+    margin-bottom: 10px; /* Jarak di bawah gambar */
+  }
+  
+  .testimonial-card p {
+    font-style: italic; /* Mengubah gaya teks menjadi miring */
+    margin: 0; /* Menghapus margin default */
+  }
+  
   .testimonial-card strong {
-    margin-top: 10px;
-    font-style: normal;
-    font-weight: 900;
-    color: #11644d;
+    margin-top: 10px; /* Jarak di atas nama */
+    font-weight: bold; /* Menebalkan nama */
   }
+  
+  .testimonial-card div {
+    margin-top: 10px; /* Jarak di atas rating */
+  }
+  
 
   /* Social media links */
   #social-media {
@@ -426,6 +445,22 @@
     }
   }
   @media (max-width: 400px) {
+    .hero {
+      height: 280px; /* Anda bisa menyesuaikan ini jika perlu */
+    }
+    .hero h1 {
+      font-size: 1.4rem;
+    }
+    .hero p {
+      font-size: 0.85rem;
+    }
+    .hero img {
+      width: 100%; /* Memastikan gambar memenuhi lebar layar */
+      height: 100%; /* Memastikan gambar memenuhi tinggi layar */
+      object-fit: cover; /* Memastikan gambar mengisi area tanpa merusak rasio aspek */
+    }
+  }
+  @media (max-width: 200px) {
     .hero {
       height: 280px; /* Anda bisa menyesuaikan ini jika perlu */
     }
