@@ -367,8 +367,8 @@
       transform: translateY(20px);
     }
   }
-  /* Responsive */
-  @media (max-width: 768px) {
+ /* Responsive */
+@media (max-width: 768px) {
     nav ul {
       flex-direction: column;
       background: white;
@@ -394,10 +394,11 @@
       display: block;
     }
     .hero {
-      height: 100vh;
+      height: 100vh; /* Memastikan hero mengisi tinggi layar */
       padding: 0 20px;
       justify-content: center;
       text-align: center;
+      overflow: hidden; /* Menyembunyikan bagian gambar yang keluar */
     }
     .hero-content {
       max-width: 100%;
@@ -413,9 +414,10 @@
       margin-bottom: 20px;
     }
     .hero img {
-        width: 100%; /* Memastikan gambar memenuhi lebar layar */
-        height: auto; /* Mempertahankan rasio aspek gambar */
-      }
+      width: 100%; /* Memastikan gambar memenuhi lebar layar */
+      height: 100%; /* Memastikan gambar memenuhi tinggi layar */
+      object-fit: cover; /* Memastikan gambar mengisi area tanpa merusak rasio aspek */
+    }
     .navbar .logo {
       max-width: 70%;
     }
@@ -425,7 +427,7 @@
   }
   @media (max-width: 400px) {
     .hero {
-      height: 280px;
+      height: 280px; /* Anda bisa menyesuaikan ini jika perlu */
     }
     .hero h1 {
       font-size: 1.4rem;
@@ -434,7 +436,9 @@
       font-size: 0.85rem;
     }
     .hero img {
-        width: 100%; /* Memastikan gambar memenuhi lebar layar */
-        height: auto; /* Mempertahankan rasio aspek gambar */
-      }
+      width: 100%; /* Memastikan gambar memenuhi lebar layar */
+      height: 100%; /* Memastikan gambar memenuhi tinggi layar */
+      object-fit: cover; /* Memastikan gambar mengisi area tanpa merusak rasio aspek */
+    }
   }
+  
