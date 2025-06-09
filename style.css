@@ -412,6 +412,10 @@
       font-size: 0.95rem;
       margin-bottom: 20px;
     }
+    .hero img {
+        width: 100%; /* Memastikan gambar memenuhi lebar layar */
+        height: auto; /* Mempertahankan rasio aspek gambar */
+      }
     .navbar .logo {
       max-width: 70%;
     }
@@ -429,5 +433,8 @@
     .hero p {
       font-size: 0.85rem;
     }
-    
+    .hero img {
+        width: 100%; /* Memastikan gambar memenuhi lebar layar */
+        height: auto; /* Mempertahankan rasio aspek gambar */
+      }
   }
