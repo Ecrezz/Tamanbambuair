@@ -460,20 +460,4 @@
       object-fit: cover; /* Memastikan gambar mengisi area tanpa merusak rasio aspek */
     }
   }
-  @media (max-width: 200px) {
-    .hero {
-      height: 280px; /* Anda bisa menyesuaikan ini jika perlu */
-    }
-    .hero h1 {
-      font-size: 1.4rem;
-    }
-    .hero p {
-      font-size: 0.85rem;
-    }
-    .hero img {
-      width: 100%; /* Memastikan gambar memenuhi lebar layar */
-      height: 100%; /* Memastikan gambar memenuhi tinggi layar */
-      object-fit: cover; /* Memastikan gambar mengisi area tanpa merusak rasio aspek */
-    }
-  }
   
